@@ -3,6 +3,10 @@
 import CardList, { Item } from "./card-list";
 import {ChangeEventHandler, useState} from 'react';
 
+const validate = (text: string): boolean => {
+    return !!text.match(/^[0-9a-z]+$/)
+}
+
 export default function HomePage() {
 
     const [userText, setUserText] = useState('');
@@ -11,14 +15,18 @@ export default function HomePage() {
     const [items, setItems] = useState<Array<Item>>([]);
 
     const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
-        setUserText(event.target.value);
+        const newInput = event.target.value;
+        if (!validate(newInput)) {
+            window.alert("Sepcial characters are not valid")
+            return;
+        }
+        setUserText(newInput);
     }
 
     const onClickHandler = () => {
         const newId = idNumber+1;
         setId(newId);
         setItems([...items, {message: userText, id: idNumber}])
-
     }
 
     return (
