@@ -10,8 +10,9 @@ export type Item = {
 export function Card({ item }: { item: Item }) {
     return (
         <div>
-            {item.id}message:
-            {item.message}
+            id: {item.id}
+            <br/>
+            message: {item.message}
         </div>
     )
 }
