@@ -7,12 +7,16 @@ const validate = (text: string): boolean => {
     return !!text.match(/^[0-9a-z]*$/)
 }
 
-export default function HomePage() {
+export type HomePageProps = {
+    initialItems: Item[]
+}
+
+export default function HomePage({initialItems}: HomePageProps) {
 
     const [userText, setUserText] = useState('');
-    const [idNumber, setId] = useState(0);
+    const [idNumber, setId] = useState(Math.max(...initialItems.map(i=>i.id))+1);
 
-    const [items, setItems] = useState<Array<Item>>([]);
+    const [items, setItems] = useState<Array<Item>>(initialItems);
 
     const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
         const newInput = event.target.value;

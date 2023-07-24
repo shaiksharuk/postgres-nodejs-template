@@ -1,9 +1,11 @@
 import HomePage from "@/components/home"
+import { getAllMessages } from "@/lib/postgres";
 
-export default function Home() {
+export default async function Home() {
+  const initialItems = await getAllMessages();
   return (
     <main>
-      <HomePage/>
+      <HomePage initialItems={initialItems}/>
     </main>
   )
 }
