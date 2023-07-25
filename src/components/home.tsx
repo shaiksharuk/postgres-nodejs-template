@@ -4,7 +4,7 @@ import CardList, { Item } from "./card-list";
 import {ChangeEventHandler, useState} from 'react';
 
 const validate = (text: string): boolean => {
-    return !!text.match(/^[0-9a-z]*$/)
+    return !!text.match(/^[0-9 a-z]*$/)
 }
 
 export type HomePageProps = {
