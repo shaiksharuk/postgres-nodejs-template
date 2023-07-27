@@ -5,7 +5,7 @@ export default async function Home() {
   const initialItems = await getAllMessages();
   return (
     <main>
-      <HomePage initialItems={initialItems}/>
+      <HomePage initialItems = {initialItems}/>
     </main>
   )
 }

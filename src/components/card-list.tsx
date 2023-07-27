@@ -20,8 +20,8 @@ export function Card({ item }: { item: Item }) {
     const [isEditing, setIsEditing] = useState(false);
 
     const onCancelHandler = () => {
-        setUserText(item.message)
-;        toggleOnEdit();
+        setUserText(item.message);
+        toggleOnEdit();
 
     }
     const toggleOnEdit = () => {
@@ -49,8 +49,7 @@ export function Card({ item }: { item: Item }) {
         <div>
             <input type="text" value={userText} onChange={inputChangeHandler} />
             <button>update</button>
-            <button onClick={onCancelHandler}  >cancel</button>
-
+            <button onClick={onCancelHandler}>cancel</button>
         </div>
     )
     
@@ -64,9 +63,9 @@ export default function CardList(props: CardListProps) {
     return (
         <div>
             <h1>Messages: </h1>
-            {
-                items
-            }
+            
+            {items}
+            
         </div>
     )
 

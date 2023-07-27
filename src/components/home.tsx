@@ -29,8 +29,10 @@ export default function HomePage({initialItems}: HomePageProps) {
 
     const onClickHandler = () => {
         const newId = idNumber+1;
+        
         setId(newId);
         setItems([...items, {message: userText, id: idNumber}])
+        
     }
 
     return (
@@ -39,7 +41,7 @@ export default function HomePage({initialItems}: HomePageProps) {
             <h1>Sharuk's project</h1>
             <div>
                 <input type="text" value={userText} id ={idNumber.toString()} onChange = {inputChangeHandler}/><br/>
-                <input type="submit" value = "upload" onClick={onClickHandler}/>
+                <input type="submit" value = "upload" onClick ={onClickHandler}/>
             </div>
             <br/>
             <CardList items={items}/>
